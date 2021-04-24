@@ -1,24 +1,5 @@
 part of assets;
 
-const _AvalibleIcons = [
-  'cloudy',
-  'rainy3',
-  'rainy4',
-  'rainy5',
-  'rainy6',
-  'snowy3',
-  'snowy4',
-  'thunder',
-  'cloudyDay',
-  'cloudyNight',
-  'day',
-  'night',
-  'rainy1',
-  'rainy2',
-  'snowy1',
-  'snowy2',
-];
-
 class _Sizes {
   _Sizes(String path, String assetName) {
     this.x24 = path + '24/' + assetName;
