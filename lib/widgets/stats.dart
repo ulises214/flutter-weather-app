@@ -10,7 +10,7 @@ class Stats extends StatelessWidget {
         Stat(text: '0.533 mBar', icon: WeatherIcons.time_12),
         Stat(
           text: '9km/h',
-          icon: WeatherIcons.strong_wind,
+          icon: WeatherIcons.windy,
           extraPadding: 8,
         ),
       ],

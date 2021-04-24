@@ -72,9 +72,8 @@ class CityWeather extends StatelessWidget {
                     tiny: true,
                   ),
                   Stat(
-                    icon: WeatherIcons.raindrop,
+                    icon: WeatherIcons.windy,
                     text: wind,
-                    tiny: true,
                   ),
                 ],
               ),
