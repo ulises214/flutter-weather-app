@@ -9,4 +9,4 @@ https://www.amcharts.com/free-animated-svg-weather-icons/
 
 ## Dark theme
 
-![Home][https://raw.githubusercontent.com/ulises214/flutter-weather-app/main/screenshots/dark_1.jpg]
+![Home dark](https://raw.githubusercontent.com/ulises214/flutter-weather-app/main/screenshots/dark_1.jpg)
