@@ -6,3 +6,7 @@ https://dribbble.com/shots/15292603-Weather-Conceptual-App-Design
 
 Icons
 https://www.amcharts.com/free-animated-svg-weather-icons/
+
+## Dark theme
+
+![Home][./screenshots/dark_1.jpg]
