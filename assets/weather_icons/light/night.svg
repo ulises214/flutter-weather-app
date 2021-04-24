@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="64"
+   height="64"
+   viewbox="0 0 64 64"
+   id="svg510"
+   sodipodi:docname="night.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)">
+  <metadata
+     id="metadata514">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="679"
+     inkscape:window-height="696"
+     id="namedview512"
+     showgrid="false"
+     inkscape:zoom="4.671875"
+     inkscape:cx="27.566852"
+     inkscape:cy="32.402797"
+     inkscape:window-x="20"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg510"
+     inkscape:document-rotation="0" />
+  <defs
+     id="defs493">
+    <filter
+       id="blur"
+       width="200%"
+       height="200%">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="3"
+         id="feGaussianBlur478" />
+      <feOffset
+         dx="0"
+         dy="4"
+         result="offsetblur"
+         id="feOffset480" />
+      <feComponentTransfer
+         id="feComponentTransfer484">
+        <feFuncA
+           type="linear"
+           slope="0.05"
+           id="feFuncA482" />
+      </feComponentTransfer>
+      <feMerge
+         id="feMerge490">
+        <feMergeNode
+           id="feMergeNode486" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode488" />
+      </feMerge>
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#nuwvo_sol"
+       id="linearGradient1628-7"
+       x1="3.3"
+       y1="1.5"
+       x2="3.3"
+       y2="5.1999998"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="nuwvo_sol">
+      <stop
+         style="stop-color:#ffb97d;stop-opacity:1"
+         offset="0"
+         id="stop1042" />
+      <stop
+         style="stop-color:#ff54a6;stop-opacity:1"
+         offset="1"
+         id="stop1044" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#nuwvo_sol"
+       id="linearGradient1612-5"
+       x1="4.4999995"
+       y1="13.2"
+       x2="19.5"
+       y2="13.2"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#nuwvo_sol"
+       id="linearGradient1614-9"
+       gradientUnits="userSpaceOnUse"
+       x1="5.1999998"
+       y1="3.3"
+       x2="19.720343"
+       y2="23.164619" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#nuwvo_sol"
+       id="linearGradient5173"
+       gradientUnits="userSpaceOnUse"
+       x1="3.3"
+       y1="1.5"
+       x2="3.3"
+       y2="5.1999998" />
+  </defs>
+  <g
+     id="g2326-2"
+     transform="translate(129.79626,193.28618)">
+    <g
+       id="night"
+       transform="translate(-129.79626,-193.28618)">
+      <g
+         transform="translate(20,20)"
+         id="g68-2">
+        <g
+           class="am-weather-moon-star-1"
+           id="g58-8">
+          <polygon
+             fill="#ffa500"
+             points="4,2.7 5.2,3.3 4,4 3.3,5.2 2.7,4 1.5,3.3 2.7,2.7 3.3,1.5 "
+             stroke="none"
+             stroke-miterlimit="10"
+             id="polygon56-9"
+             style="fill:url(#linearGradient5173);fill-opacity:1" />
+        </g>
+        <g
+           class="am-weather-moon-star-2"
+           id="g62-7">
+          <polygon
+             fill="#ffa500"
+             points="4,2.7 5.2,3.3 4,4 3.3,5.2 2.7,4 1.5,3.3 2.7,2.7 3.3,1.5 "
+             stroke="none"
+             stroke-miterlimit="10"
+             transform="translate(20,10)"
+             id="polygon60-3"
+             style="fill:url(#linearGradient1628-7);fill-opacity:1" />
+        </g>
+        <g
+           class="am-weather-moon"
+           id="g66-6"
+           style="fill:url(#linearGradient1612-5);fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             d="m 14.5,13.2 c 0,-3.7 2,-6.9 5,-8.7 -1.5,-0.9 -3.2,-1.3 -5,-1.3 -5.5,0 -10,4.5 -10,10 0,5.5 4.5,10 10,10 1.8,0 3.5,-0.5 5,-1.3 -3,-1.7 -5,-5 -5,-8.7 z"
+             fill="#ffa500"
+             stroke="#ffa500"
+             stroke-linejoin="round"
+             stroke-width="2"
+             id="path64-1"
+             style="fill:url(#linearGradient1614-9);fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
