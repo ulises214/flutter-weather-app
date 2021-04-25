@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
-import 'package:basic_wheater_app/enums/enums.dart';
-import 'package:basic_wheater_app/assets/assets.dart';
+part of controllers_library;
 
 class ThemeController extends GetxController {
   late final Rx<AppColors> appColors;

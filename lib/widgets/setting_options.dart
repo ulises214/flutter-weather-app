@@ -10,8 +10,8 @@ class SettingOptions extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _SettingsItem(opt: 'Temperature', value: 'Celcius'),
-            _SettingsItem(opt: 'Wind Speed', value: 'km/h'),
+            _SettingsItem(opt: 'Language', value: 'English'),
+            _SettingsItem(opt: 'Units system', value: 'Metric'),
             _SettingsItem(
               opt: 'Theme',
               value: themeCtrl.currentTheme.value,

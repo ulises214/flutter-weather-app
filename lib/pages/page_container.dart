@@ -1,10 +1,4 @@
-import 'package:basic_wheater_app/controllers/theme_controller.dart';
-import 'package:basic_wheater_app/pages/fav_page.dart';
-import 'package:basic_wheater_app/pages/home_page.dart';
-import 'package:basic_wheater_app/pages/nav_bar.dart';
-import 'package:basic_wheater_app/pages/settings_page.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+part of pages_library;
 
 class PageContainer extends StatelessWidget {
   @override

@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:basic_wheater_app/enums/enums.dart';
-import 'package:basic_wheater_app/controllers/theme_controller.dart';
-import 'package:basic_wheater_app/widgets/widgets.dart';
+part of pages_library;
 
 class HomePage extends StatelessWidget {
   @override

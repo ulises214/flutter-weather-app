@@ -2,6 +2,7 @@
     package="com.example.basic_wheater_app">
   <!-- Required to fetch data from the internet. -->
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
    <application
         android:label="basic_wheater_app"
         android:icon="@mipmap/ic_launcher">
@@ -39,5 +40,12 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- Recommended for Android 9 (API level 28) and lower. -->
+        <!-- Required for Android 10 (API level 29) and higher. -->
+        <service
+            android:name="MyNavigationService"
+            android:foregroundServiceType="location" >
+            <!-- Any inner elements would go here. -->
+        </service>
     </application>
 </manifest>

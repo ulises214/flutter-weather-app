@@ -1,8 +1,4 @@
-import 'package:basic_wheater_app/controllers/theme_controller.dart';
-import 'package:basic_wheater_app/widgets/widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:line_icons/line_icons.dart';
+part of pages_library;
 
 final List<Map<String, String>> citiesWeather = [
   {
