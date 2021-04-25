@@ -2,13 +2,13 @@ part of translations;
 
 class SpanishWeekDaysTranslations extends WeekDaysTranslations {
   SpanishWeekDaysTranslations()
-      : super(
-          monday: 'Lunes',
-          tuesday: 'Martes',
-          wednesday: 'Miércoles',
-          thursday: 'Jueves',
-          friday: 'Viernes',
-          saturday: 'Sábado',
-          sunday: 'Domingo',
-        );
+      : super(days: {
+          WeekDays.MONDAY: 'Lunes',
+          WeekDays.TUESDAY: 'Martes',
+          WeekDays.WEDNESDAY: 'Miércoles',
+          WeekDays.THURSDAY: 'Jueves',
+          WeekDays.FRIDAY: 'Viernes',
+          WeekDays.SATURDAY: 'Sábado',
+          WeekDays.SUNDAY: 'Domingo',
+        });
 }

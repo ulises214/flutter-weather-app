@@ -12,4 +12,6 @@ part './windspeed.dart';
 part './pressure.dart';
 part './secondary_city_weather.dart';
 part './translations.dart';
-part 'weather_icon.dart';
+part './weather_icon.dart';
+part './hour_weather.dart';
+part './nex_day_model.dart';
