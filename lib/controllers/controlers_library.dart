@@ -8,3 +8,4 @@ import 'package:get/get.dart';
 
 part './language_controller.dart';
 part './theme_controller.dart';
+part './measurement_controller.dart';

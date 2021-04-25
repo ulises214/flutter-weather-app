@@ -10,6 +10,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   final themeCtrl = Get.put(ThemeController());
   final languageCtrl = Get.put(LanguageController());
+  final measurementCtrl = Get.put(MeasurementController());
   @override
   Widget build(BuildContext context) {
     return Obx(
