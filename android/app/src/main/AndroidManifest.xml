@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.basic_wheater_app">
+  <!-- Required to fetch data from the internet. -->
+  <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="basic_wheater_app"
         android:icon="@mipmap/ic_launcher">

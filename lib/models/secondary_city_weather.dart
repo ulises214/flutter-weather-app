@@ -2,7 +2,7 @@ part of weather_models;
 
 class SecondaryCityModel {
   final LocationModel location;
-  final TemperatureModel temperature;
+  final CurrentTemperatureModel temperature;
   final HumidityModel humidity;
   final WindSpeedModel windSpeed;
   SecondaryCityModel({

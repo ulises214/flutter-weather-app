@@ -2,14 +2,13 @@ part of weather_models;
 
 class MainCityModel {
   final LocationModel location;
-  final TemperatureModel temperature;
+  final CurrentTemperatureModel temperature;
   final HumidityModel humidity;
   final WindSpeedModel windSpeed;
   final PressureModel pressure;
   final WeatherIconName iconName;
   final List<HourWeatherModel> nextHours;
   final List<NextDayWeatherModel> nextDays;
-
   MainCityModel({
     required this.location,
     required this.temperature,

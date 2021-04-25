@@ -1,11 +1,10 @@
 part of weather_models;
 
-class TemperatureModel {
+class CurrentTemperatureModel {
   final MeasurementUnits _units;
-  final double _tempMin;
-  final double _tempMax;
+  final double _temp;
   late final String _postfix;
-  TemperatureModel(this._units, this._tempMin, this._tempMax) {
+  CurrentTemperatureModel(this._units, this._temp) {
     switch (_units) {
       case MeasurementUnits.STANDAR:
         _postfix = 'K';
@@ -18,8 +17,7 @@ class TemperatureModel {
         break;
     }
   }
-  get max => '$_tempMax$_postfix';
-  get min => '$_tempMin$_postfix';
-  TemperatureModel copyWithDifferentUnit(MeasurementUnits newUnit) =>
-      TemperatureModel(newUnit, _tempMin, _tempMax);
+  get temp => '$_temp$_postfix';
+  CurrentTemperatureModel copyWithDifferentUnit(MeasurementUnits newUnit) =>
+      CurrentTemperatureModel(newUnit, _temp);
 }

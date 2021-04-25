@@ -15,3 +15,4 @@ part './translations.dart';
 part './weather_icon.dart';
 part './hour_weather.dart';
 part './nex_day_model.dart';
+part './current_temperature.dart';
