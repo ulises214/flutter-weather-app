@@ -20,9 +20,6 @@ class _PageNavigationState extends State<PageNavigation> {
             indicatorSize: TabBarIndicatorSize.label,
             labelPadding: EdgeInsets.all(4),
             tabs: [
-              // FaIcon(FontAwesomeIcons.home),
-              // FaIcon(FontAwesomeIcons.heart),
-              // FaIcon(FontAwesomeIcons.bars),
               Icon(LineIcons.home, size: 28),
               Icon(LineIcons.heart, size: 28),
               Icon(LineIcons.bars, size: 28),
