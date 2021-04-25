@@ -4,7 +4,7 @@ class ThemeController extends GetxController {
   late final Rx<AppColors> appColors;
   late final Rx<ThemedIcons> icons;
   late final Rx<Brightness> brightness;
-  late final Rx<String> currentTheme;
+
   late ThemeColor _color;
 
   ThemeController({ThemeColor initialTheme: ThemeColor.DARK}) {
@@ -14,13 +14,11 @@ class ThemeController extends GetxController {
         appColors = AppColors.dark().obs;
         icons = ThemedIcons.dark().obs;
         brightness = Brightness.light.obs;
-        currentTheme = 'Dark'.obs;
         break;
       case ThemeColor.LIGHT:
         appColors = AppColors.light().obs;
         icons = ThemedIcons.light().obs;
         brightness = Brightness.dark.obs;
-        currentTheme = 'Light'.obs;
         break;
     }
   }
@@ -30,13 +28,11 @@ class ThemeController extends GetxController {
         appColors.value = AppColors.dark();
         icons.value = ThemedIcons.dark();
         brightness.value = Brightness.light;
-        currentTheme.value = 'Dark';
         break;
       case ThemeColor.LIGHT:
         appColors.value = AppColors.light();
         icons.value = ThemedIcons.light();
         brightness.value = Brightness.dark;
-        currentTheme.value = 'Light';
         break;
     }
   }
@@ -58,4 +54,6 @@ class ThemeController extends GetxController {
         break;
     }
   }
+
+  get currentTheme => _color;
 }

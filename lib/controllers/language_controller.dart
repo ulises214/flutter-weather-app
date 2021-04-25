@@ -17,4 +17,10 @@ class LanguageController extends GetxController {
     currentLanguage.value =
         translations.value.settingsPage.languageOptions[_language]!;
   }
+
+  alternate() {
+    var nextIndex = Languages.values.indexOf(_language) + 1;
+    if (nextIndex <= Languages.values.length) change(Languages.values[0]);
+    change(Languages.values[nextIndex]);
+  }
 }

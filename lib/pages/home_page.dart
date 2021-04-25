@@ -4,9 +4,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
+    final languageCtrl = Get.find<LanguageController>();
     return Obx(
       () {
         final appColors = themeCtrl.appColors.value;
+        final translations = languageCtrl.translations.value.homePage;
         return Column(
           children: [
             TopBar(),
@@ -30,7 +32,7 @@ class HomePage extends StatelessWidget {
                           padding:
                               const EdgeInsets.only(left: 32.0, bottom: 16.0),
                           child: Text(
-                            'Today',
+                            translations.today,
                             style: TextStyle(
                               color: appColors.textSecondary,
                             ),
@@ -50,17 +52,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: [
-            //     TextButton(
-            //         onPressed: () => themeCtrl.change(ThemeColor.DARK),
-            //         child: Text('Color dark')),
-            //     TextButton(
-            //         onPressed: () => themeCtrl.change(ThemeColor.LIGHT),
-            //         child: Text('Color light')),
-            //   ],
-            // )
           ],
         );
       },

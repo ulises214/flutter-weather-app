@@ -4,23 +4,34 @@ class SettingOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
-    return Obx(
-      () => Container(
+    final languageCtrl = Get.find<LanguageController>();
+    return Obx(() {
+      final translations = languageCtrl.translations.value.settingsPage;
+
+      final currentLanguage = languageCtrl.currentLanguage.value;
+
+      return Container(
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _SettingsItem(opt: 'Language', value: 'English'),
-            _SettingsItem(opt: 'Units system', value: 'Metric'),
             _SettingsItem(
-              opt: 'Theme',
-              value: themeCtrl.currentTheme.value,
+              opt: translations.languageTitle,
+              value: currentLanguage,
+              onClick: languageCtrl.alternate,
+            ),
+            //TODO implement units controller
+            _SettingsItem(
+                opt: translations.measurementUnitsTitle, value: 'Metric'),
+            _SettingsItem(
+              opt: translations.themeTitle,
+              value: translations.themeOptions[themeCtrl.currentTheme]!,
               onClick: themeCtrl.toggle,
             ),
           ],
         ),
-      ),
-    );
+      );
+    });
   }
 }
 

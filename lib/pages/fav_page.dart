@@ -39,9 +39,12 @@ class FavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
+    final languageCtrl = Get.find<LanguageController>();
+
     return Obx(() {
       final colors = themeCtrl.appColors.value;
       final icons = themeCtrl.icons.value;
+      final translations = languageCtrl.translations.value.favPage;
 
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
@@ -61,7 +64,7 @@ class FavPage extends StatelessWidget {
                     cursorColor: colors.accent,
                     decoration: InputDecoration(
                       fillColor: colors.background,
-                      hintText: 'Search',
+                      hintText: translations.search,
                       hintStyle: TextStyle(color: colors.textSecondary),
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none,

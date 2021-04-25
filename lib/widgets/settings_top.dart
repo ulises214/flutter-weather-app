@@ -4,10 +4,12 @@ class SettingsTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
+    final languageCtrl = Get.find<LanguageController>();
+
     return Obx(() {
       final colors = themeCtrl.appColors.value;
       final icons = themeCtrl.icons.value;
-
+      final translations = languageCtrl.translations.value.settingsPage;
       return Container(
         width: double.infinity,
         child: Column(
@@ -17,7 +19,7 @@ class SettingsTop extends StatelessWidget {
               children: [
                 Icon(LineIcons.mapMarker, color: colors.textSecondary),
                 Text(
-                  'Your location now',
+                  translations.locationNow,
                   style: TextStyle(color: colors.textSecondary, fontSize: 12),
                 )
               ],
