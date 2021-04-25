@@ -1,4 +1,4 @@
-part of custom_widgets;
+part of home_widgets;
 
 class CurvePainter extends CustomPainter {
   final Color lineColor;

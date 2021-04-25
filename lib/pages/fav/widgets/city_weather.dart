@@ -1,4 +1,4 @@
-part of custom_widgets;
+part of fav_widgets;
 
 class CityWeather extends StatelessWidget {
   final String temp;

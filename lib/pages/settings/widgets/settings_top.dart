@@ -1,4 +1,4 @@
-part of custom_widgets;
+part of settings_widgets;
 
 class SettingsTop extends StatelessWidget {
   @override
