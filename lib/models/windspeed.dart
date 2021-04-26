@@ -2,7 +2,7 @@ part of weather_models;
 
 class WindSpeedModel {
   final MeasurementUnits _units;
-  final int _windSpeed;
+  final num _windSpeed;
   late final String _postfix;
   WindSpeedModel(this._units, this._windSpeed) {
     switch (_units) {
@@ -17,8 +17,8 @@ class WindSpeedModel {
         break;
     }
   }
-  get speed => '$_windSpeed$_postfix';
+  get formatedValue => '$_windSpeed$_postfix';
 
   WindSpeedModel copyWithDifferentUnit(MeasurementUnits newUnit) =>
-      WindSpeedModel(newUnit, _windSpeed);
+      WindSpeedModel(newUnit, convertSpeedUnit(_windSpeed, _units, newUnit));
 }

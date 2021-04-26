@@ -20,7 +20,9 @@ class LanguageController extends GetxController {
 
   alternate() {
     var nextIndex = Languages.values.indexOf(_language) + 1;
-    if (nextIndex <= Languages.values.length) change(Languages.values[0]);
-    change(Languages.values[nextIndex]);
+    if (nextIndex < Languages.values.length)
+      change(Languages.values[nextIndex]);
+    else
+      change(Languages.values[0]);
   }
 }

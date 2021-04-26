@@ -33,6 +33,7 @@ dependencies:
   http:
   intl:
   permission_handler:
+  cron:
 dev_dependencies:
   flutter_test:
     sdk: flutter

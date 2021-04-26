@@ -1,7 +1,6 @@
 part of openweather_repositories_library;
 
-WeatherIconName _weatherCodeToIcon(String weatherId) {
-  final id = int.parse(weatherId);
+WeatherIconName _weatherCodeToIcon(int id) {
   if (id >= 200 && id < 300)
     return WeatherIconName.thunderstorm(ThunderstormTypes.DEFAULT);
   else if (id >= 300 && id < 400)
@@ -27,4 +26,19 @@ WeatherIconName _weatherCodeToIcon(String weatherId) {
   }
 
   return WeatherIconName.clouds(CloudsTypes.BROKEN);
+}
+
+WeatherTypes _weatherCodeToType(int id) {
+  if (id >= 200 && id < 300)
+    return WeatherTypes.THUNDERSTORM;
+  else if (id >= 300 && id < 400)
+    return WeatherTypes.DRIZZLE;
+  else if (id >= 500 && id < 600)
+    return WeatherTypes.RAIN;
+  else if (id >= 600 && id < 700)
+    return WeatherTypes.SNOW;
+  else if (id >= 700 && id < 800)
+    return WeatherTypes.CLOUDS;
+  else if (id == 800) return WeatherTypes.CLEAR;
+  return WeatherTypes.CLOUDS;
 }

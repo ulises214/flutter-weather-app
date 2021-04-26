@@ -3,8 +3,8 @@ part of weather_models;
 class NextDayWeatherModel {
   final WeekDays day;
   final WeatherIconName icon;
-  final TemperatureModel maxTemp;
-  final TemperatureModel minTemp;
+  final CurrentTemperatureModel maxTemp;
+  final CurrentTemperatureModel minTemp;
   NextDayWeatherModel({
     required this.day,
     required this.icon,

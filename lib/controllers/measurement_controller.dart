@@ -15,8 +15,9 @@ class MeasurementController extends GetxController {
 
   alternate() {
     var nextIndex = MeasurementUnits.values.indexOf(_currentUnit) + 1;
-    if (nextIndex <= MeasurementUnits.values.length)
+    if (nextIndex < MeasurementUnits.values.length)
+      change(MeasurementUnits.values[nextIndex]);
+    else
       change(MeasurementUnits.values[0]);
-    change(MeasurementUnits.values[nextIndex]);
   }
 }

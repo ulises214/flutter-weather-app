@@ -4,9 +4,11 @@ class DayWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
+    final weatherCtrl = Get.find<WeatherController>();
     return Obx(
       () {
         final icons = themeCtrl.icons.value;
+        final mainCity = weatherCtrl.mainCity.value!;
         final textColor = themeCtrl.appColors.value.text;
         final cloudyDay = icons.cloudyDay.x1024,
             day = icons.day.x1024,
@@ -14,45 +16,28 @@ class DayWeather extends StatelessWidget {
 
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            DayWeatherDetail(
-                time: '10 AM',
-                icon: cloudyDay,
-                temperature: '19°',
-                textColor: textColor),
-            DayWeatherDetail(
-                time: '11 AM',
-                icon: day,
-                temperature: '22°',
-                textColor: textColor),
-            DayWeatherDetail(
-                time: '12 AM',
-                icon: cloudyDay,
-                temperature: '21°',
-                textColor: textColor),
-            DayWeatherDetail(
-                time: '01 PM',
-                icon: cloudy,
-                temperature: '18°',
-                textColor: textColor),
-            DayWeatherDetail(
-                time: '02 PM',
-                icon: cloudy,
-                temperature: '17°',
-                textColor: textColor),
-          ],
+          children: mainCity.nextHours
+              .map(
+                (e) => NextHourWeatherDetail(
+                  time: e.hour,
+                  icon: icons.find(e.icon.assetImage).x1024,
+                  temperature: e.temperature.formatedTemp,
+                  textColor: textColor,
+                ),
+              )
+              .toList(),
         );
       },
     );
   }
 }
 
-class DayWeatherDetail extends StatelessWidget {
+class NextHourWeatherDetail extends StatelessWidget {
   final String time;
   final String icon;
   final String temperature;
   final Color textColor;
-  const DayWeatherDetail({
+  const NextHourWeatherDetail({
     required this.time,
     required this.icon,
     required this.temperature,
@@ -72,7 +57,7 @@ class DayWeatherDetail extends StatelessWidget {
       ),
       Text(
         temperature,
-        style: TextStyle(color: textColor, fontSize: 16),
+        style: TextStyle(color: textColor, fontSize: 14),
       ),
     ]);
   }

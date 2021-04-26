@@ -1,7 +1,7 @@
 part of weather_models;
 
 class LocationModel {
-  final String _id;
+  final int _id;
   final String _city;
   late final String? _state;
   final String _country;

@@ -3,7 +3,7 @@ part of weather_models;
 class HourWeatherModel {
   final String hour;
   final WeatherIconName icon;
-  final TemperatureModel temperature;
+  final CurrentTemperatureModel temperature;
 
   HourWeatherModel({
     required this.hour,

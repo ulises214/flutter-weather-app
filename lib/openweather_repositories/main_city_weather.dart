@@ -14,21 +14,28 @@ class OpenWeatherMainCityWeatherRepository extends MainCityWeatherRepository {
     final temp = CurrentTemperatureModel(units, json['current']['temp']);
     final humidity = HumidityModel(json['current']['humidity']);
     final windSpeed = WindSpeedModel(units, json['current']['wind_speed']);
-    final PressureModel pressure = PressureModel(json['current']['pressure']);
-    final iconName = _weatherCodeToIcon(json['current']['weather']['id']);
-    final nextHours = _parseNextHours(json);
-    final nextDays = _parseNextDays(json);
+    final pressure = PressureModel(json['current']['pressure']);
+    final iconName = _weatherCodeToIcon(json['current']['weather'][0]['id']);
+    final nextHours = _parseNextHours(json, units);
+    final nextDays = _parseNextDays(json, units);
+    final weatherType = _weatherCodeToType(json['current']['weather'][0]['id']);
+    print(json['current']['sunrise']);
+    print(json['current']['sunset']);
 
+    final sunrise = SunTime(json['current']['sunrise']);
+    final sunset = SunTime(json['current']['sunset']);
     return MainCityModel(
-      location: location,
-      temperature: temp,
-      humidity: humidity,
-      windSpeed: windSpeed,
-      pressure: pressure,
-      iconName: iconName,
-      nextHours: nextHours,
-      nextDays: nextDays,
-    );
+        location: location,
+        temperature: temp,
+        weatherType: weatherType,
+        humidity: humidity,
+        windSpeed: windSpeed,
+        pressure: pressure,
+        iconName: iconName,
+        nextHours: nextHours,
+        nextDays: nextDays,
+        sunrise: sunrise,
+        sunset: sunset);
   }
 }
 
@@ -41,30 +48,34 @@ Future<LocationModel> _getLocation(
       rawJson['id'], rawJson['name'], rawJson['sys']['country']);
 }
 
-List<HourWeatherModel> _parseNextHours(dynamic json) {
+List<HourWeatherModel> _parseNextHours(dynamic json, MeasurementUnits units) {
   var currDate = DateTime.now();
-  var formatter = DateFormat('hma');
-  final List<HourWeatherModel> nextHours = json['hourly'].map((h) {
+  var formatter = DateFormat.j();
+  // ? Use only 5 next hours
+  final List<HourWeatherModel> nextHours = [];
+  json['hourly'].take(5).forEach((h) {
     currDate = currDate.add(Duration(hours: 1));
-    return HourWeatherModel(
+    nextHours.add(HourWeatherModel(
       hour: formatter.format(currDate),
-      icon: _weatherCodeToIcon(h['weather']['id']),
-      temperature: h['temp'],
-    );
-  }).toList();
+      icon: _weatherCodeToIcon(h['weather'][0]['id']),
+      temperature: CurrentTemperatureModel(units, h['temp']),
+    ));
+  });
   return nextHours;
 }
 
-List<NextDayWeatherModel> _parseNextDays(dynamic json) {
+List<NextDayWeatherModel> _parseNextDays(dynamic json, MeasurementUnits units) {
   var currDate = DateTime.now();
-  final List<NextDayWeatherModel> nextDays = json['daily'].map((d) {
+  // ? Use only 3 next days
+  final List<NextDayWeatherModel> nextDays = [];
+  json['daily'].take(3).forEach((d) {
     currDate = currDate.add(Duration(days: 1));
-    return NextDayWeatherModel(
+    nextDays.add(NextDayWeatherModel(
       day: WeekDays.values[currDate.weekday - 1],
-      icon: _weatherCodeToIcon(d['weather']['id']),
-      maxTemp: d['temp']['max'],
-      minTemp: d['temp']['min'],
-    );
-  }).toList();
+      icon: _weatherCodeToIcon(d['weather'][0]['id']),
+      maxTemp: CurrentTemperatureModel(units, d['temp']['max']),
+      minTemp: CurrentTemperatureModel(units, d['temp']['min']),
+    ));
+  });
   return nextDays;
 }

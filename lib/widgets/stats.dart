@@ -1,20 +1,29 @@
 part of custom_widgets;
 
 class Stats extends StatelessWidget {
+  final weatherCtrl = Get.find<WeatherController>();
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Stat(text: '13%', icon: WeatherIcons.raindrop),
-        Stat(text: '0.533 mBar', icon: WeatherIcons.time_12),
-        Stat(
-          text: '9km/h',
-          icon: WeatherIcons.windy,
-          extraPadding: 8,
-        ),
-      ],
-    );
+    return Obx(() {
+      final mainCityWeather = weatherCtrl.mainCity.value!;
+
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Stat(
+              text: mainCityWeather.humidity.formated,
+              icon: WeatherIcons.raindrop),
+          Stat(
+              text: mainCityWeather.pressure.formate,
+              icon: WeatherIcons.time_12),
+          Stat(
+            text: mainCityWeather.windSpeed.formatedValue,
+            icon: WeatherIcons.windy,
+            extraPadding: 8,
+          ),
+        ],
+      );
+    });
   }
 }
 
@@ -32,6 +41,7 @@ class Stat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
+
     return Obx(
       () {
         final colors = themeCtrl.appColors.value;

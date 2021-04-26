@@ -4,9 +4,11 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
+    final weatherCtrl = Get.find<WeatherController>();
     return Obx(
       () {
         final colors = themeCtrl.appColors.value;
+        final mainCityWeather = weatherCtrl.mainCity.value!;
         return Container(
           width: double.infinity,
           height: 250,
@@ -20,30 +22,20 @@ class TopBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'San Francisco',
+                      mainCityWeather.location.city,
                       style: TextStyle(
                         color: colors.text,
                         fontSize: 18,
                       ),
                     ),
                     Text(
-                      '18°',
+                      mainCityWeather.temperature.formatedTemp,
                       style: TextStyle(
                         color: colors.text,
                         fontSize: 48,
                       ),
                     ),
-                    Chip(
-                      backgroundColor: colors.card,
-                      shadowColor: colors.shadow,
-                      elevation: 0,
-                      label: Text(
-                        'Day',
-                        style: TextStyle(
-                          color: colors.text,
-                        ),
-                      ),
-                    ),
+                    WeatherTypeChip(),
                   ],
                 ),
                 Transform.scale(
@@ -51,7 +43,11 @@ class TopBar extends StatelessWidget {
                   child: Image(
                     height: 128,
                     width: 128,
-                    image: AssetImage(themeCtrl.icons.value.day.x1024),
+                    image: AssetImage(
+                      themeCtrl.icons.value
+                          .find(mainCityWeather.iconName.assetImage)
+                          .x1024,
+                    ),
                   ),
                 ),
               ],

@@ -2,8 +2,8 @@ part of weather_models;
 
 class TemperatureModel {
   final MeasurementUnits _units;
-  final double _tempMin;
-  final double _tempMax;
+  final num _tempMin;
+  final num _tempMax;
   late final String _postfix;
   TemperatureModel(this._units, this._tempMin, this._tempMax) {
     switch (_units) {
@@ -21,5 +21,6 @@ class TemperatureModel {
   get max => '$_tempMax$_postfix';
   get min => '$_tempMin$_postfix';
   TemperatureModel copyWithDifferentUnit(MeasurementUnits newUnit) =>
-      TemperatureModel(newUnit, _tempMin, _tempMax);
+      TemperatureModel(newUnit, convertTempUnit(_tempMin, _units, newUnit),
+          convertTempUnit(_tempMax, _units, newUnit));
 }

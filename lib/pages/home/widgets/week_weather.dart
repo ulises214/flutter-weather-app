@@ -4,42 +4,31 @@ class WeekWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
+    final weatherCtrl = Get.find<WeatherController>();
+    final languageCtrl = Get.find<LanguageController>();
     return Obx(() {
       final colors = themeCtrl.appColors.value;
       final icons = themeCtrl.icons.value;
+      final translations = languageCtrl.translations.value;
+      final mainCity = weatherCtrl.mainCity.value!;
       return Column(
-        children: [
-          WeekWeatherDetail(
-            day: 'Tuesday',
-            icon: icons.cloudyDay.x1024,
-            maxTemp: '19°',
-            minTemp: '15°',
-            textColor: colors.text,
-            textColorSecondary: colors.textSecondary,
-          ),
-          WeekWeatherDetail(
-            day: 'Wednesday',
-            icon: icons.cloudyDay.x1024,
-            maxTemp: '19°',
-            minTemp: '15°',
-            textColor: colors.text,
-            textColorSecondary: colors.textSecondary,
-          ),
-          WeekWeatherDetail(
-            day: 'Thursday',
-            icon: icons.day.x1024,
-            maxTemp: '18°',
-            minTemp: '14°',
-            textColor: colors.text,
-            textColorSecondary: colors.textSecondary,
-          ),
-        ],
-      );
+          children: mainCity.nextDays
+              .map(
+                (e) => NexDayWeather(
+                  day: translations.weekDays.days[e.day]!,
+                  icon: icons.find(e.icon.assetImage).x1024,
+                  maxTemp: e.maxTemp.formatedTemp,
+                  minTemp: e.minTemp.formatedTemp,
+                  textColor: colors.text,
+                  textColorSecondary: colors.textSecondary,
+                ),
+              )
+              .toList());
     });
   }
 }
 
-class WeekWeatherDetail extends StatelessWidget {
+class NexDayWeather extends StatelessWidget {
   final String day;
   final String icon;
   final String maxTemp;
@@ -47,7 +36,7 @@ class WeekWeatherDetail extends StatelessWidget {
   final Color textColor;
   final Color textColorSecondary;
 
-  const WeekWeatherDetail({
+  const NexDayWeather({
     required this.day,
     required this.icon,
     required this.maxTemp,

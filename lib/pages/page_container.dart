@@ -4,10 +4,10 @@ class PageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
-
+    final weatherCtrl = Get.find<WeatherController>();
     return Obx(() {
       final appColors = themeCtrl.appColors.value;
-
+      final mainCity = weatherCtrl.mainCity.value;
       return DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -17,9 +17,13 @@ class PageContainer extends StatelessWidget {
           body: SafeArea(
             child: TabBarView(
               children: [
-                HomePage(),
+                mainCity != null
+                    ? HomePage()
+                    : ThemedCircularProgressIndicator(),
                 FavPage(),
-                SettingsPage(),
+                mainCity != null
+                    ? SettingsPage()
+                    : ThemedCircularProgressIndicator(),
               ],
             ),
           ),

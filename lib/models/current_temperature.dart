@@ -2,7 +2,7 @@ part of weather_models;
 
 class CurrentTemperatureModel {
   final MeasurementUnits _units;
-  final double _temp;
+  final num _temp;
   late final String _postfix;
   CurrentTemperatureModel(this._units, this._temp) {
     switch (_units) {
@@ -10,14 +10,17 @@ class CurrentTemperatureModel {
         _postfix = 'K';
         break;
       case MeasurementUnits.METRIC:
-        _postfix = '°C';
+        _postfix = '°';
         break;
       case MeasurementUnits.IMPERIAL:
-        _postfix = '°F';
+        _postfix = 'F';
         break;
     }
   }
-  get temp => '$_temp$_postfix';
-  CurrentTemperatureModel copyWithDifferentUnit(MeasurementUnits newUnit) =>
-      CurrentTemperatureModel(newUnit, _temp);
+
+  get formatedTemp => '${_temp.toStringAsFixed(1)} $_postfix';
+  CurrentTemperatureModel copyWithDifferentUnit(MeasurementUnits newUnit) {
+    return CurrentTemperatureModel(
+        newUnit, convertTempUnit(_temp, _units, newUnit));
+  }
 }
