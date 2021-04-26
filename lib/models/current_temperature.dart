@@ -18,7 +18,7 @@ class CurrentTemperatureModel {
     }
   }
 
-  get formatedTemp => '${_temp.toStringAsFixed(1)} $_postfix';
+  get formatedTemp => '${_temp.toStringAsFixed(1)}$_postfix';
   CurrentTemperatureModel copyWithDifferentUnit(MeasurementUnits newUnit) {
     return CurrentTemperatureModel(
         newUnit, convertTempUnit(_temp, _units, newUnit));

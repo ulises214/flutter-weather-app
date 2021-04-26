@@ -3,7 +3,6 @@ part of pages_library;
 class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final themeCtrl = Get.find<ThemeController>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
       child: Column(

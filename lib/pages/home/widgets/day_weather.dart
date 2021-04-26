@@ -10,9 +10,6 @@ class DayWeather extends StatelessWidget {
         final icons = themeCtrl.icons.value;
         final mainCity = weatherCtrl.mainCity.value!;
         final textColor = themeCtrl.appColors.value.text;
-        final cloudyDay = icons.cloudyDay.x1024,
-            day = icons.day.x1024,
-            cloudy = icons.cloudy.x1024;
 
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

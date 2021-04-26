@@ -5,11 +5,12 @@ class SettingsTop extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
     final languageCtrl = Get.find<LanguageController>();
-
+    final weatherCtrl = Get.find<WeatherController>();
     return Obx(() {
       final colors = themeCtrl.appColors.value;
       final icons = themeCtrl.icons.value;
       final translations = languageCtrl.translations.value.settingsPage;
+      final mainCity = weatherCtrl.mainCity.value!;
       return Container(
         width: double.infinity,
         child: Column(
@@ -24,32 +25,24 @@ class SettingsTop extends StatelessWidget {
                 )
               ],
             ),
-            Text(
-              'San Fransico, California, USA',
-              style: TextStyle(color: colors.text, fontSize: 14),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text(
+                mainCity.location.longLocation,
+                style: TextStyle(color: colors.text, fontSize: 14),
+              ),
             ),
             Container(
-              height: 200,
-              child: Transform.scale(
-                scale: 2,
-                child: Image(
-                  image: AssetImage(icons.day.x1024),
+              width: 200,
+              child: Image(
+                image: AssetImage(
+                  icons.find(mainCity.iconName.assetImage).x1024,
                 ),
               ),
             ),
-            Chip(
-              backgroundColor: colors.card,
-              shadowColor: colors.shadow,
-              elevation: 0,
-              label: Text(
-                'Day',
-                style: TextStyle(
-                  color: colors.text,
-                ),
-              ),
-            ),
+            WeatherTypeChip(),
             Text(
-              '18°',
+              mainCity.temperature.formatedTemp,
               style: TextStyle(
                 color: colors.text,
                 fontSize: 48,
