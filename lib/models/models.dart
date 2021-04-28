@@ -19,3 +19,4 @@ part './hour_weather.dart';
 part './nex_day_model.dart';
 part './current_temperature.dart';
 part './sun_time.dart';
+part './searchable_city.dart';

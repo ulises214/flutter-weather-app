@@ -10,7 +10,7 @@ class SettingsTop extends StatelessWidget {
       final colors = themeCtrl.appColors.value;
       final icons = themeCtrl.icons.value;
       final translations = languageCtrl.translations.value.settingsPage;
-      final mainCity = weatherCtrl.mainCity.value!;
+      final mainCity = weatherCtrl.mainCity!;
       return Container(
         width: double.infinity,
         child: Column(
@@ -42,7 +42,7 @@ class SettingsTop extends StatelessWidget {
             ),
             WeatherTypeChip(),
             Text(
-              mainCity.temperature.formatedTemp,
+              mainCity.temperature.pretty,
               style: TextStyle(
                 color: colors.text,
                 fontSize: 48,

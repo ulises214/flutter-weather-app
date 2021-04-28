@@ -34,6 +34,7 @@ dependencies:
   intl:
   permission_handler:
   cron:
+  material_floating_search_bar:
 dev_dependencies:
   flutter_test:
     sdk: flutter

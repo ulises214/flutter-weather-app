@@ -1,3 +1,7 @@
 part of enums_library;
 
-enum MeasurementUnits { STANDAR, METRIC, IMPERIAL }
+enum MeasurementUnits {
+  // STANDAR,
+  METRIC,
+  IMPERIAL,
+}

@@ -12,7 +12,7 @@ const _Blue = Color(0xFF2B48D3);
 const _BlueDark = Color(0xFF152C39);
 const _BlueLight = Color(0xFF27AFFD);
 const _Gray = Color(0xFFa0a5b2);
-const _WhiteShadow = Color.fromRGBO(255, 255, 255, 0.9);
+const _WhiteShadow = Color.fromRGBO(255, 255, 255, 0);
 const _DarkShadow = Color.fromRGBO(0xFF, 0xB9, 0x7D, 0.9);
 
 class AppColors {
@@ -20,26 +20,29 @@ class AppColors {
   final Color card;
   final Color icon;
   final Color shadow;
+  final Color border;
   final Color accent;
   final Color text;
   final Color textSecondary;
   final Color extra;
-  AppColors({
+  AppColors._({
     required this.background,
     required this.card,
     required this.icon,
     required this.shadow,
+    required this.border,
     required this.accent,
     required this.text,
     required this.textSecondary,
     required this.extra,
   });
   factory AppColors.dark() {
-    return AppColors(
+    return AppColors._(
       background: _Black,
       card: _BlueDark,
       icon: _Blue,
       shadow: _WhiteShadow,
+      border: _BlueDark,
       accent: _Pink,
       text: _White,
       extra: _Purple,
@@ -47,11 +50,12 @@ class AppColors {
     );
   }
   factory AppColors.light() {
-    return AppColors(
+    return AppColors._(
       background: _White,
       card: _WhiteDark,
       icon: _BlueDark,
       shadow: _DarkShadow,
+      border: _Black,
       accent: _Red,
       text: _Black,
       extra: _BlueLight,

@@ -7,9 +7,9 @@ class TemperatureModel {
   late final String _postfix;
   TemperatureModel(this._units, this._tempMin, this._tempMax) {
     switch (_units) {
-      case MeasurementUnits.STANDAR:
-        _postfix = 'K';
-        break;
+      // case MeasurementUnits.STANDAR:
+      //   _postfix = 'K';
+      //   break;
       case MeasurementUnits.METRIC:
         _postfix = '°C';
         break;

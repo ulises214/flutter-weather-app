@@ -22,9 +22,13 @@ class CityWeather extends StatelessWidget {
       final colors = themeCtrl.appColors.value;
 
       return Container(
+        height: 150,
         decoration: BoxDecoration(
-            color: colors.card,
-            borderRadius: BorderRadius.all(Radius.circular(16))),
+          color: colors.card,
+          borderRadius: BorderRadius.all(
+            Radius.circular(16),
+          ),
+        ),
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Column(

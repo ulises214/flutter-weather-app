@@ -1,7 +1,7 @@
 part of weather_models;
 
 class LocationModel {
-  final int _id;
+  final num _id;
   final String _city;
   late final String? _state;
   final String _country;
@@ -10,6 +10,7 @@ class LocationModel {
     this._state = state;
   }
   get city => _city;
+  get country => _country;
   get longLocation => '$_city,${_state != null ? '$_state,' : ''}$_country';
   get id => _id;
 }

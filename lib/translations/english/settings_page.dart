@@ -17,7 +17,7 @@ class EnglishSettingsPageTranslations extends SettingsPageTranslations {
           },
           measurementUnitsOptions: {
             MeasurementUnits.IMPERIAL: 'Imperial',
-            MeasurementUnits.STANDAR: 'Standar',
+            // MeasurementUnits.STANDAR: 'Standar',
             MeasurementUnits.METRIC: 'Metric',
           },
         );

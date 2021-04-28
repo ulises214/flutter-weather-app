@@ -5,19 +5,19 @@ class Stats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final mainCityWeather = weatherCtrl.mainCity.value!;
+      final mainCityWeather = weatherCtrl.mainCity!;
 
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Stat(
-              text: mainCityWeather.humidity.formated,
+              text: mainCityWeather.humidity.formatted,
               icon: WeatherIcons.raindrop),
           Stat(
               text: mainCityWeather.pressure.formate,
               icon: WeatherIcons.time_12),
           Stat(
-            text: mainCityWeather.windSpeed.formatedValue,
+            text: mainCityWeather.windSpeed.formatted,
             icon: WeatherIcons.windy,
             extraPadding: 8,
           ),

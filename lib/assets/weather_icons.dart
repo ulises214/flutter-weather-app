@@ -48,6 +48,7 @@ class ThemedIcons {
   final snowy3 = _Sizes(_Path, 'snowy-3.png');
   final snowy4 = _Sizes(_Path, 'snowy-4.png');
   final thunder = _Sizes(_Path, 'thunder.png');
+  final noWeather = _Sizes(_Path, 'no-weather.png');
   final _Sizes cloudyDay;
   final _Sizes cloudyNight;
   final _Sizes day;

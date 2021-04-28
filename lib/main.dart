@@ -1,3 +1,4 @@
+import 'package:basic_wheater_app/widgets/widgets.dart';
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,8 +13,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   final themeCtrl = Get.put(ThemeController());
   final languageCtrl = Get.put(LanguageController());
-  final unitsCtrl = Get.put(MeasurementController());
   final weatherCtrl = Get.put(WeatherController());
+  final secondaryCitiesCtrl = Get.put(SearchCitiesController());
   final cron = Cron();
 
   MyApp() {
@@ -33,7 +34,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () {
-        weatherCtrl.updateUnits(unitsCtrl.units.value);
         _changeStatusBarColors(themeCtrl);
         SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
@@ -45,21 +45,9 @@ class MyApp extends StatelessWidget {
                   initialData: false,
                   future: hasLocationPermision(),
                   builder: (context, AsyncSnapshot<bool?> snapshot) {
-                    Widget initHome() {
-                      if (weatherCtrl.mainCity.value == null)
-                        weatherCtrl.updateMainCity();
-                      return PageContainer();
-                    }
-
                     return snapshot.data == true
-                        ? initHome()
-                        : Container(
-                            child: Center(
-                              child: Text(
-                                'Se necesitan los permisos de ubicación',
-                              ),
-                            ),
-                          );
+                        ? PageContainer()
+                        : ThemedCircularProgressIndicator();
                   },
                 )
           },

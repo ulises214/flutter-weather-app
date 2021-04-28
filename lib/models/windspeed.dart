@@ -6,9 +6,9 @@ class WindSpeedModel {
   late final String _postfix;
   WindSpeedModel(this._units, this._windSpeed) {
     switch (_units) {
-      case MeasurementUnits.STANDAR:
-        _postfix = 'm/s';
-        break;
+      // case MeasurementUnits.STANDAR:
+      //   _postfix = 'm/s';
+      //   break;
       case MeasurementUnits.METRIC:
         _postfix = 'm/s';
         break;
@@ -17,7 +17,7 @@ class WindSpeedModel {
         break;
     }
   }
-  get formatedValue => '$_windSpeed$_postfix';
+  get formatted => '${_windSpeed.toStringAsFixed(1)}$_postfix';
 
   WindSpeedModel copyWithDifferentUnit(MeasurementUnits newUnit) =>
       WindSpeedModel(newUnit, convertSpeedUnit(_windSpeed, _units, newUnit));

@@ -19,8 +19,6 @@ class OpenWeatherMainCityWeatherRepository extends MainCityWeatherRepository {
     final nextHours = _parseNextHours(json, units);
     final nextDays = _parseNextDays(json, units);
     final weatherType = _weatherCodeToType(json['current']['weather'][0]['id']);
-    print(json['current']['sunrise']);
-    print(json['current']['sunset']);
 
     final sunrise = SunTime(json['current']['sunrise']);
     final sunset = SunTime(json['current']['sunset']);

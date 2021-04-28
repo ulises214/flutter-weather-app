@@ -8,7 +8,7 @@ class TopBar extends StatelessWidget {
     return Obx(
       () {
         final colors = themeCtrl.appColors.value;
-        final mainCityWeather = weatherCtrl.mainCity.value!;
+        final mainCityWeather = weatherCtrl.mainCity!;
         return Container(
           width: double.infinity,
           height: 250,
@@ -29,7 +29,7 @@ class TopBar extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      mainCityWeather.temperature.formatedTemp,
+                      mainCityWeather.temperature.pretty,
                       style: TextStyle(
                         color: colors.text,
                         fontSize: 48,

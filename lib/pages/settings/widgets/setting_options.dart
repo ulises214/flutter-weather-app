@@ -5,12 +5,11 @@ class SettingOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
     final languageCtrl = Get.find<LanguageController>();
-    final measurementCtrl = Get.find<MeasurementController>();
-
+    final weatherCtrl = Get.find<WeatherController>();
     return Obx(() {
       final translations = languageCtrl.translations.value.settingsPage;
       final currentLanguage = languageCtrl.currentLanguage.value;
-      final measurementUnits = measurementCtrl.units.value;
+      final measurementUnits = weatherCtrl.units;
       return Container(
         width: double.infinity,
         child: Column(
@@ -24,7 +23,7 @@ class SettingOptions extends StatelessWidget {
             _SettingsItem(
               opt: translations.measurementUnitsTitle,
               value: translations.measurementUnitsOptions[measurementUnits]!,
-              onClick: measurementCtrl.alternate,
+              onClick: weatherCtrl.alternateUnits,
             ),
             _SettingsItem(
               opt: translations.themeTitle,

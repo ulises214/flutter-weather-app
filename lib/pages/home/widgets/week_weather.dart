@@ -10,15 +10,15 @@ class WeekWeather extends StatelessWidget {
       final colors = themeCtrl.appColors.value;
       final icons = themeCtrl.icons.value;
       final translations = languageCtrl.translations.value;
-      final mainCity = weatherCtrl.mainCity.value!;
+      final mainCity = weatherCtrl.mainCity!;
       return Column(
           children: mainCity.nextDays
               .map(
                 (e) => NexDayWeather(
                   day: translations.weekDays.days[e.day]!,
                   icon: icons.find(e.icon.assetImage).x1024,
-                  maxTemp: e.maxTemp.formatedTemp,
-                  minTemp: e.minTemp.formatedTemp,
+                  maxTemp: e.maxTemp.formatted,
+                  minTemp: e.minTemp.formatted,
                   textColor: colors.text,
                   textColorSecondary: colors.textSecondary,
                 ),

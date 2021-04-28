@@ -42,3 +42,7 @@ WeatherTypes _weatherCodeToType(int id) {
   else if (id == 800) return WeatherTypes.CLEAR;
   return WeatherTypes.CLOUDS;
 }
+
+String _measurementUnitToString(MeasurementUnits units) =>
+    // MeasurementUnits.STANDAR => standar
+    units.toString().split('.')[1].toLowerCase();

@@ -17,7 +17,7 @@ class SpanishSettingsPageTranslations extends SettingsPageTranslations {
           },
           measurementUnitsOptions: {
             MeasurementUnits.IMPERIAL: 'Imperial',
-            MeasurementUnits.STANDAR: 'Estándar',
+            // MeasurementUnits.STANDAR: 'Estándar',
             MeasurementUnits.METRIC: 'Métrico',
           },
         );

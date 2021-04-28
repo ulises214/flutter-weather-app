@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="64"
+   height="64"
+   viewbox="0 0 64 64"
+   id="svg30"
+   sodipodi:docname="no-weather.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)"
+   inkscape:export-filename="/home/ulisesr/Documents/flutter/basic_wheater_app/assets/weather_icons/common/24/no-weather.png"
+   inkscape:export-xdpi="36"
+   inkscape:export-ydpi="36">
+  <metadata
+     id="metadata34">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1326"
+     inkscape:window-height="696"
+     id="namedview32"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="31.063367"
+     inkscape:cy="35.179231"
+     inkscape:window-x="1386"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g277-0"
+     inkscape:document-rotation="0" />
+  <defs
+     id="defs17">
+    <filter
+       id="blur"
+       width="200%"
+       height="200%">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="3"
+         id="feGaussianBlur2" />
+      <feOffset
+         dx="0"
+         dy="4"
+         result="offsetblur"
+         id="feOffset4" />
+      <feComponentTransfer
+         id="feComponentTransfer8">
+        <feFuncA
+           type="linear"
+           slope="0.05"
+           id="feFuncA6" />
+      </feComponentTransfer>
+      <feMerge
+         id="feMerge14">
+        <feMergeNode
+           id="feMergeNode10" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12" />
+      </feMerge>
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#nube-3"
+       id="linearGradient1931-76"
+       gradientUnits="userSpaceOnUse"
+       x1="-6.5535364"
+       y1="59.101181"
+       x2="47.770695"
+       y2="21.688185"
+       gradientTransform="translate(7.81e-4,-0.999685)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="nube-3">
+      <stop
+         style="stop-color:#2f2d59;stop-opacity:1;"
+         offset="0"
+         id="stop1674" />
+      <stop
+         style="stop-color:#27affd;stop-opacity:1"
+         offset="1"
+         id="stop1676" />
+    </linearGradient>
+    <filter
+       id="blur-3"
+       width="200%"
+       height="200%">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="3"
+         id="feGaussianBlur2-5" />
+      <feOffset
+         dx="0"
+         dy="4"
+         result="offsetblur"
+         id="feOffset4-6" />
+      <feComponentTransfer
+         id="feComponentTransfer8-2">
+        <feFuncA
+           type="linear"
+           slope="0.05"
+           id="feFuncA6-9" />
+      </feComponentTransfer>
+      <feMerge
+         id="feMerge14-1">
+        <feMergeNode
+           id="feMergeNode10-2" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12-7" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g
+     id="g2342"
+     transform="translate(115.20994,29.726557)">
+    <g
+       id="cloudy-5"
+       transform="translate(-115.20994,-29.726557)">
+      <g
+         transform="translate(20,10)"
+         id="g277">
+        <g
+           id="g277-0"
+           transform="translate(7.81e-4,3.15e-4)">
+          <path
+             id="path241-28-9-6"
+             style="fill:url(#linearGradient1931-76);fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+             d="M 30.101562 20.5 C 26.401562 20.5 23.400391 23.501172 23.400391 27.201172 C 23.400391 28.001172 23.600781 28.8 23.800781 29.5 C 23.500781 29.4 23.100781 29.400391 22.800781 29.400391 C 19.100781 29.400391 16.101562 32.399609 16.101562 36.099609 C 16.101562 39.699609 19.001563 42.700781 22.601562 42.800781 L 39.800781 42.800781 C 44.200781 42.300781 47.701172 38.800391 47.701172 34.400391 C 47.701172 29.800391 44 26.201172 39.5 26.201172 C 38.5 26.201172 37.601172 26.401172 36.701172 26.701172 C 36.401172 23.301172 33.601563 20.5 30.101562 20.5 z M 30.634766 27.779297 C 32.57768 27.779297 34.652367 29.29563 34.652344 31.294922 C 34.652344 33.949734 31.783203 33.991596 31.783203 34.972656 L 31.783203 35.103516 C 31.783203 35.406921 31.53778 35.654297 31.234375 35.654297 L 29.576172 35.654297 C 29.272767 35.654297 29.027344 35.406921 29.027344 35.103516 L 29.027344 34.880859 C 29.027344 33.465602 30.099328 32.899906 30.910156 32.445312 C 31.605458 32.055498 32.03125 31.789649 32.03125 31.273438 C 32.03125 30.590586 31.161215 30.136719 30.457031 30.136719 C 29.561419 30.136719 29.135868 30.551225 28.5625 31.269531 C 28.376611 31.502416 28.038218 31.545263 27.800781 31.365234 L 26.814453 30.615234 C 26.579352 30.436968 26.526775 30.105455 26.695312 29.863281 C 27.624389 28.528275 28.80772 27.779297 30.634766 27.779297 z M 30.40625 36.328125 C 31.280551 36.328125 31.990234 37.039761 31.990234 37.914062 C 31.990234 38.788363 31.280551 39.5 30.40625 39.5 C 29.531948 39.5 28.820312 38.78834 28.820312 37.914062 C 28.820313 37.03976 29.531948 36.328125 30.40625 36.328125 z "
+             transform="translate(-20.000781,-10.000315)" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

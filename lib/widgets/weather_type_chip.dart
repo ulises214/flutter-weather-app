@@ -9,7 +9,7 @@ class WeatherTypeChip extends StatelessWidget {
     return Obx(() {
       final colors = themeCtrl.appColors.value;
       final translations = languageCtrl.translations.value;
-      final mainCityWeather = weatherCtrl.mainCity.value!;
+      final mainCityWeather = weatherCtrl.mainCity!;
       return Chip(
         backgroundColor: colors.card,
         shadowColor: colors.shadow,

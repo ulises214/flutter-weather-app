@@ -4,7 +4,7 @@ class OpenWeatherSecondadyCityWeatherRepository
     extends SecondadyCityWeatherRepository {
   @override
   Future<SecondaryCityModel> getByCityId(
-      String cityId, MeasurementUnits units) async {
+      num cityId, MeasurementUnits units) async {
     final reqUri = _getSecondaryCityUriById(cityId, units);
     final res = (await http.get(reqUri));
     return _parseJson(jsonDecode(res.body), units);
@@ -24,11 +24,13 @@ class OpenWeatherSecondadyCityWeatherRepository
     final temp = CurrentTemperatureModel(units, json['main']['temp']);
     final humidity = HumidityModel(json['main']['humidity']);
     final windSpeed = WindSpeedModel(units, json['wind']['speed']);
+    final iconName = _weatherCodeToIcon(json['weather'][0]['id']);
     return SecondaryCityModel(
       location: location,
       temperature: temp,
       humidity: humidity,
       windSpeed: windSpeed,
+      iconName: iconName,
     );
   }
 }

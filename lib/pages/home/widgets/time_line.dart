@@ -34,7 +34,7 @@ class TimeLine extends StatelessWidget {
         final icons = themeCtrl.icons.value;
         final day = icons.day.x1024, night = icons.night.x1024;
         final colors = themeCtrl.appColors.value;
-        final mainCity = weatherCtrl.mainCity.value!;
+        final mainCity = weatherCtrl.mainCity!;
         return Container(
           height: 100,
           child: Stack(

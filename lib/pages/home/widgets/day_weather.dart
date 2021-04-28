@@ -8,7 +8,7 @@ class DayWeather extends StatelessWidget {
     return Obx(
       () {
         final icons = themeCtrl.icons.value;
-        final mainCity = weatherCtrl.mainCity.value!;
+        final mainCity = weatherCtrl.mainCity!;
         final textColor = themeCtrl.appColors.value.text;
 
         return Row(
@@ -18,7 +18,7 @@ class DayWeather extends StatelessWidget {
                 (e) => NextHourWeatherDetail(
                   time: e.hour,
                   icon: icons.find(e.icon.assetImage).x1024,
-                  temperature: e.temperature.formatedTemp,
+                  temperature: e.temperature.formatted,
                   textColor: textColor,
                 ),
               )
