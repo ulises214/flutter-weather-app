@@ -5,7 +5,7 @@ import 'package:basic_wheater_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-part './day_weather.dart';
-part './time_line.dart';
-part './top_bar.dart';
-part './week_weather.dart';
+part 'day_weather.dart';
+part 'time_line.dart';
+part 'top_bar.dart';
+part 'week_weather.dart';

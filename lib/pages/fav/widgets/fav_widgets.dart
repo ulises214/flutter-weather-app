@@ -11,8 +11,8 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import 'package:weather_icons/weather_icons.dart';
 
-part './city_weather.dart';
-part './search_field.dart';
-part './cities_weather_list.dart';
-part './search_item.dart';
-part './empty_cities.dart';
+part 'city_weather.dart';
+part 'search_field.dart';
+part 'cities_weather_list.dart';
+part 'search_item.dart';
+part 'empty_cities.dart';
