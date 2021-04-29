@@ -7,19 +7,17 @@ class WeatherTypeChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final colors = themeCtrl.appColors.value;
-      final translations = languageCtrl.translations.value;
+      final colors = themeCtrl.appColors;
+      final translations = languageCtrl.translations;
       final mainCityWeather = weatherCtrl.mainCity!;
+      final weatherName =
+          translations.weatherTypes.weather[mainCityWeather.weatherType]!;
       return Chip(
+        side: BorderSide(color: colors.border),
         backgroundColor: colors.card,
         shadowColor: colors.shadow,
         elevation: 0,
-        label: Text(
-          translations.weatherTypes.weather[mainCityWeather.weatherType]!,
-          style: TextStyle(
-            color: colors.text,
-          ),
-        ),
+        label: CustomText.body(weatherName, themeCtrl),
       );
     });
   }

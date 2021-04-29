@@ -1,21 +1,21 @@
 part of controllers_library;
 
 class LanguageController extends GetxController {
-  late final Rx<TranslationsModel> translations;
-  late final Rx<String> currentLanguage;
+  late final Rx<TranslationsModel> _translations;
+  late final Rx<String> _currentLanguage;
   Languages _language;
 
   LanguageController([this._language = Languages.SPANISH]) {
-    translations = TranslationsModel(_language).obs;
-    currentLanguage =
-        translations.value.settingsPage.languageOptions[_language]!.obs;
+    _translations = TranslationsModel(_language).obs;
+    _currentLanguage =
+        _translations.value.settingsPage.languageOptions[_language]!.obs;
   }
   change(Languages language) {
     if (language == _language) return;
     _language = language;
-    translations.value = TranslationsModel(_language);
-    currentLanguage.value =
-        translations.value.settingsPage.languageOptions[_language]!;
+    _translations.value = TranslationsModel(_language);
+    _currentLanguage.value =
+        _translations.value.settingsPage.languageOptions[_language]!;
   }
 
   alternate() {
@@ -25,4 +25,7 @@ class LanguageController extends GetxController {
     else
       change(Languages.values[0]);
   }
+
+  TranslationsModel get translations => _translations.value;
+  String get currentLanguage => _currentLanguage.value;
 }

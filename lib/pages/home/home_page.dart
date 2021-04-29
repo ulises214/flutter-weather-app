@@ -7,8 +7,7 @@ class HomePage extends StatelessWidget {
     final languageCtrl = Get.find<LanguageController>();
     return Obx(
       () {
-        final appColors = themeCtrl.appColors.value;
-        final translations = languageCtrl.translations.value.homePage;
+        final translations = languageCtrl.translations.homePage;
         return Column(
           children: [
             TopBar(),
@@ -31,11 +30,9 @@ class HomePage extends StatelessWidget {
                         child: Padding(
                           padding:
                               const EdgeInsets.only(left: 32.0, bottom: 16.0),
-                          child: Text(
+                          child: CustomText.bodySecondary(
                             translations.today,
-                            style: TextStyle(
-                              color: appColors.textSecondary,
-                            ),
+                            themeCtrl,
                           ),
                         ),
                       ),

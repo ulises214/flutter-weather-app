@@ -7,8 +7,8 @@ class SettingOptions extends StatelessWidget {
     final languageCtrl = Get.find<LanguageController>();
     final weatherCtrl = Get.find<WeatherController>();
     return Obx(() {
-      final translations = languageCtrl.translations.value.settingsPage;
-      final currentLanguage = languageCtrl.currentLanguage.value;
+      final translations = languageCtrl.translations.settingsPage;
+      final currentLanguage = languageCtrl.currentLanguage;
       final measurementUnits = weatherCtrl.units;
       return Container(
         width: double.infinity,
@@ -50,38 +50,29 @@ class _SettingsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeCtrl = Get.find<ThemeController>();
     return Obx(() {
-      final colors = themeCtrl.appColors.value;
-      return GestureDetector(
+      final colors = themeCtrl.appColors;
+      return InkWell(
         onTap: onClick,
-        child: Container(
-          color: Colors.transparent,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  opt,
-                  style: TextStyle(color: colors.text),
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Text(
-                        value,
-                        style: TextStyle(color: colors.textSecondary),
-                      ),
-                    ),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomText.body(opt, themeCtrl),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: CustomText.bodySecondary(value, themeCtrl),
                   ),
                 ),
-                Icon(
-                  LineIcons.chevronCircleRight,
-                  color: colors.text,
-                ),
-              ],
-            ),
+              ),
+              Icon(
+                LineIcons.chevronCircleRight,
+                color: colors.text,
+              ),
+            ],
           ),
         ),
       );

@@ -14,9 +14,9 @@ class _PageNavigationState extends State<PageNavigation> {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           child: TabBar(
-            labelColor: themeCtrl.appColors.value.accent,
-            unselectedLabelColor: themeCtrl.appColors.value.icon,
-            indicatorColor: themeCtrl.appColors.value.accent,
+            labelColor: themeCtrl.appColors.accent,
+            unselectedLabelColor: themeCtrl.appColors.icon,
+            indicatorColor: themeCtrl.appColors.accent,
             indicatorSize: TabBarIndicatorSize.label,
             labelPadding: EdgeInsets.all(4),
             tabs: [

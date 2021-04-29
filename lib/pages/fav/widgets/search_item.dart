@@ -2,48 +2,36 @@ part of fav_widgets;
 
 class SearchItem extends StatelessWidget {
   final SearchableCity city;
-  final Color colorText;
-  final Color backgroundColor;
-  final ThemedIcons themedIcons;
+  final ThemeController controller;
+
   final VoidCallback onClick;
   SearchItem({
     required this.city,
-    required this.colorText,
-    required this.backgroundColor,
-    required this.themedIcons,
+    required this.controller,
     required this.onClick,
   });
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: GestureDetector(
-        onTap: onClick,
-        child: Container(
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
+      child: Card(
+        color: controller.appColors.card,
+        child: InkWell(
+          onTap: () {
+            Future.delayed(Duration(milliseconds: 100)).then((_) => onClick());
+          },
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
                 Expanded(
-                  child: Text(
-                    city.location.city,
-                    style: TextStyle(color: colorText),
-                  ),
+                  child: CustomText.body(city.location.city, controller),
                 ),
-                Text(
-                  city.location.country,
-                  style: TextStyle(color: colorText),
-                ),
+                CustomText.bodySecondary(city.location.country, controller),
                 Image(
                   width: 36,
                   image: AssetImage(
-                    themedIcons.find(city.iconName.assetImage).x48,
+                    controller.icons.find(city.iconName.assetImage).x48,
                   ),
                 )
               ],

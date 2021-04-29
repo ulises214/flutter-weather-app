@@ -31,9 +31,9 @@ class TimeLine extends StatelessWidget {
     final weatherCtrl = Get.find<WeatherController>();
     return Obx(
       () {
-        final icons = themeCtrl.icons.value;
+        final icons = themeCtrl.icons;
         final day = icons.day.x1024, night = icons.night.x1024;
-        final colors = themeCtrl.appColors.value;
+        final colors = themeCtrl.appColors;
         final mainCity = weatherCtrl.mainCity!;
         return Container(
           height: 100,
@@ -48,12 +48,7 @@ class TimeLine extends StatelessWidget {
                       height: 48,
                       image: AssetImage(day),
                     ),
-                    Text(
-                      mainCity.sunrise.formated,
-                      style: TextStyle(
-                        color: colors.text,
-                      ),
-                    )
+                    CustomText.body(mainCity.sunrise.formatted, themeCtrl),
                   ],
                 ),
               ),
@@ -73,11 +68,9 @@ class TimeLine extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      mainCity.sunset.formated,
-                      style: TextStyle(
-                        color: colors.text,
-                      ),
+                    CustomText.body(
+                      mainCity.sunset.formatted,
+                      themeCtrl,
                     ),
                     Image(
                       width: 48,

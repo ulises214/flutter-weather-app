@@ -9,8 +9,9 @@ class LocationModel {
   LocationModel(this._id, this._city, this._country, {String? state}) {
     this._state = state;
   }
-  get city => _city;
-  get country => _country;
-  get longLocation => '$_city,${_state != null ? '$_state,' : ''}$_country';
-  get id => _id;
+  String get city => _city;
+  String get country => _country;
+  String get longLocation =>
+      '$_city, ${_state != null ? '$_state, ' : ''}$_country';
+  num get id => _id;
 }

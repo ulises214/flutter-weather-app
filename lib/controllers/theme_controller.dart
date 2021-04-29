@@ -1,9 +1,9 @@
 part of controllers_library;
 
 class ThemeController extends GetxController {
-  late final Rx<AppColors> appColors;
-  late final Rx<ThemedIcons> icons;
-  late final Rx<Brightness> brightness;
+  late final Rx<AppColors> _appColors;
+  late final Rx<ThemedIcons> _icons;
+  late final Rx<Brightness> _brightness;
 
   late ThemeColor _color;
 
@@ -11,28 +11,28 @@ class ThemeController extends GetxController {
     _color = initialTheme;
     switch (_color) {
       case ThemeColor.DARK:
-        appColors = AppColors.dark().obs;
-        icons = ThemedIcons.dark().obs;
-        brightness = Brightness.light.obs;
+        _appColors = AppColors.dark().obs;
+        _icons = ThemedIcons.dark().obs;
+        _brightness = Brightness.light.obs;
         break;
       case ThemeColor.LIGHT:
-        appColors = AppColors.light().obs;
-        icons = ThemedIcons.light().obs;
-        brightness = Brightness.dark.obs;
+        _appColors = AppColors.light().obs;
+        _icons = ThemedIcons.light().obs;
+        _brightness = Brightness.dark.obs;
         break;
     }
   }
   _applyChanges() {
     switch (_color) {
       case ThemeColor.DARK:
-        appColors.value = AppColors.dark();
-        icons.value = ThemedIcons.dark();
-        brightness.value = Brightness.light;
+        _appColors.value = AppColors.dark();
+        _icons.value = ThemedIcons.dark();
+        _brightness.value = Brightness.light;
         break;
       case ThemeColor.LIGHT:
-        appColors.value = AppColors.light();
-        icons.value = ThemedIcons.light();
-        brightness.value = Brightness.dark;
+        _appColors.value = AppColors.light();
+        _icons.value = ThemedIcons.light();
+        _brightness.value = Brightness.dark;
         break;
     }
   }
@@ -55,5 +55,8 @@ class ThemeController extends GetxController {
     }
   }
 
-  get currentTheme => _color;
+  ThemeColor get currentTheme => _color;
+  AppColors get appColors => _appColors.value;
+  ThemedIcons get icons => _icons.value;
+  Brightness get brightness => _brightness.value;
 }

@@ -10,42 +10,41 @@ class CitySearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final colors = themeCtrl.appColors.value;
-      final icons = themeCtrl.icons.value;
-      final translations = languageCtrl.translations.value.favPage;
+      final colors = themeCtrl.appColors;
+      final translations = languageCtrl.translations.favPage;
       final citiesFound = secondCitiesCtrl.citiesFound;
       return FloatingSearchBar(
-        body: Padding(
-          padding: const EdgeInsets.only(top: 64.0),
-          child: CitiesWeatherList(),
-        ),
-        hint: translations.search,
-        scrollPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-        backgroundColor: colors.background,
-        shadowColor: colors.shadow,
-        iconColor: colors.text,
         accentColor: colors.accent,
-        border: BorderSide.none,
-        hintStyle: TextStyle(color: colors.text),
-        queryStyle: TextStyle(color: colors.text),
-        borderRadius: BorderRadius.zero,
-        backdropColor: colors.card,
+        backdropColor: Colors.transparent,
+        backgroundColor: colors.card,
+        border: BorderSide(color: colors.card),
+        borderRadius: BorderRadius.circular(15),
+        clearQueryOnClose: true,
         controller: searchInputController,
         debounceDelay: const Duration(milliseconds: 500),
-        clearQueryOnClose: true,
-        onQueryChanged: (query) {
+        elevation: 8,
+        hint: translations.search,
+        hintStyle: Theme.of(context).textTheme.bodyText2,
+        iconColor: colors.text,
+        onQueryChanged: (query) {},
+        onSubmitted: (query) {
+          secondCitiesCtrl.clearCitiesFound();
           secondCitiesCtrl.search(query);
         },
-        onSubmitted: (what) {},
-        // Specify a custom transition to be used for
-        // animating between opened and closed stated.
-        transition: ExpandingFloatingSearchBarTransition(),
+        queryStyle: Theme.of(context).textTheme.bodyText1,
+        transition: SlideFadeFloatingSearchBarTransition(translation: 16),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 72.0),
+          child: CitiesWeatherList(),
+        ),
         actions: [
           FloatingSearchBarAction(
             showIfOpened: false,
             child: CircularButton(
               icon: const Icon(LineIcons.mapMarker),
-              onPressed: () {},
+              onPressed: () {
+                searchInputController.open();
+              },
             ),
           ),
           FloatingSearchBarAction.back(
@@ -53,12 +52,17 @@ class CitySearchField extends StatelessWidget {
           ),
         ],
         builder: (context, transition) {
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Material(
-              borderOnForeground: false,
-              color: colors.background,
-              elevation: 4.0,
+          return Material(
+            borderOnForeground: false,
+            color: Colors.transparent,
+            shadowColor: colors.shadow,
+            borderRadius: BorderRadius.circular(16),
+            elevation: 8,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: colors.background,
+                  border: Border.all(color: colors.card),
+                  borderRadius: BorderRadius.circular(16)),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: citiesFound.length != 0
@@ -66,26 +70,16 @@ class CitySearchField extends StatelessWidget {
                         .map(
                           (c) => SearchItem(
                             city: c,
-                            colorText: colors.text,
-                            backgroundColor: colors.card,
-                            themedIcons: icons,
+                            controller: themeCtrl,
                             onClick: () {
-                              searchInputController.clear();
                               searchInputController.close();
                               weatherCtrl.appendSecondaryCity(c);
+                              secondCitiesCtrl.clearCitiesFound();
                             },
                           ),
                         )
                         .toList()
-                    : [
-                        Container(
-                          color: colors.background,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ThemedCircularProgressIndicator(),
-                          ),
-                        )
-                      ],
+                    : [_notCities()],
               ),
             ),
           );
@@ -109,3 +103,11 @@ class CitySearchField extends StatelessWidget {
 //                 contentPadding: EdgeInsets.symmetric(horizontal: 8.0),
 //               ),
 //             ),
+Widget _notCities() => Container(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ThemedCircularProgressIndicator(
+          tiny: true,
+        ),
+      ),
+    );

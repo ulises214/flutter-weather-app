@@ -8,7 +8,7 @@ class SunTime {
       _timestamp * 1000,
     );
   }
-  get formated {
+  get formatted {
     var formatter = DateFormat.jm();
     return formatter.format(_date);
   }

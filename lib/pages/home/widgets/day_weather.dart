@@ -7,9 +7,8 @@ class DayWeather extends StatelessWidget {
     final weatherCtrl = Get.find<WeatherController>();
     return Obx(
       () {
-        final icons = themeCtrl.icons.value;
+        final icons = themeCtrl.icons;
         final mainCity = weatherCtrl.mainCity!;
-        final textColor = themeCtrl.appColors.value.text;
 
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -19,7 +18,7 @@ class DayWeather extends StatelessWidget {
                   time: e.hour,
                   icon: icons.find(e.icon.assetImage).x1024,
                   temperature: e.temperature.formatted,
-                  textColor: textColor,
+                  controller: themeCtrl,
                 ),
               )
               .toList(),
@@ -33,29 +32,23 @@ class NextHourWeatherDetail extends StatelessWidget {
   final String time;
   final String icon;
   final String temperature;
-  final Color textColor;
+  final ThemeController controller;
   const NextHourWeatherDetail({
     required this.time,
     required this.icon,
     required this.temperature,
-    required this.textColor,
+    required this.controller,
   });
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Text(
-        time,
-        style: TextStyle(color: textColor, fontSize: 12),
-      ),
+      CustomText.body(time, controller),
       Image(
         width: 48,
         height: 48,
         image: AssetImage(icon),
       ),
-      Text(
-        temperature,
-        style: TextStyle(color: textColor, fontSize: 14),
-      ),
+      CustomText.body(temperature, controller),
     ]);
   }
 }

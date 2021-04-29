@@ -6,9 +6,9 @@ class EmptyCities extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final noWeatherIcon = themeCtrl.icons.value.noWeather.x1024;
-      final colors = themeCtrl.appColors.value;
-      final noWeatherText = languageCtrl.translations.value.favPage.noWeather;
+      final noWeatherIcon = themeCtrl.icons.noWeather.x1024;
+      final colors = themeCtrl.appColors;
+      final noWeatherText = languageCtrl.translations.favPage.noWeather;
       return Container(
         child: Column(
           children: [
@@ -20,10 +20,7 @@ class EmptyCities extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 36),
               child: Align(
                 alignment: Alignment.center,
-                child: Text(
-                  noWeatherText,
-                  style: TextStyle(color: colors.text, fontSize: 16),
-                ),
+                child: CustomText.subtitle(noWeatherText, themeCtrl),
               ),
             )
           ],

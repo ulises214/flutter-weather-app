@@ -6,7 +6,7 @@ class PageContainer extends StatelessWidget {
     final themeCtrl = Get.find<ThemeController>();
     final weatherCtrl = Get.find<WeatherController>();
     return Obx(() {
-      final appColors = themeCtrl.appColors.value;
+      final appColors = themeCtrl.appColors;
       final mainCity = weatherCtrl.mainCity;
       return DefaultTabController(
         length: 3,

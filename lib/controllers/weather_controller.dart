@@ -2,7 +2,7 @@ part of controllers_library;
 
 class WeatherController extends GetxController {
   late final Rx<MainCityModel?> _mainCity = Rx(null);
-  final RxMap<num, SecondaryCityModel> _secondaryCities = RxMap();
+  final RxList<MapEntry<num, SecondaryCityModel>> _secondaryCities = RxList();
   late final Rx<MeasurementUnits> _units;
 
   final MainCityWeatherRepository _mainCityRepository =
@@ -12,6 +12,10 @@ class WeatherController extends GetxController {
 
   WeatherController([units = MeasurementUnits.METRIC]) {
     this._units = Rx<MeasurementUnits>(units);
+    _appendSecondaryCity(1850147);
+    _appendSecondaryCity(5128638);
+    _appendSecondaryCity(4000524);
+    _appendSecondaryCity(3981362);
   }
   // ? Getters
   MainCityModel? get mainCity {
@@ -20,7 +24,7 @@ class WeatherController extends GetxController {
   }
 
   List<SecondaryCityModel> get secondaryCities =>
-      _secondaryCities.values.map<SecondaryCityModel>((c) => c).toList();
+      _secondaryCities.map<SecondaryCityModel>((c) => c.value).toList();
   MeasurementUnits get units => _units.value;
 
   // ? Update state
@@ -28,12 +32,24 @@ class WeatherController extends GetxController {
     _mainCity.value = (await _mainCityRepository.getByCoords(19, -103, units));
   }
 
+  reOrderSecondaryList(int oldIndex, int newIndex) {
+    if (newIndex > oldIndex) {
+      newIndex = newIndex - 1;
+    }
+    final element = _secondaryCities.removeAt(oldIndex);
+    _secondaryCities.insert(newIndex, element);
+  }
+
   appendSecondaryCity(SearchableCity cityToSearch) async {
-    if (_secondaryCities[cityToSearch.location.id] != null) return;
     final id = cityToSearch.location.id;
+    if (_secondaryCities.any((e) => e.key == id)) return;
+    _appendSecondaryCity(id);
+  }
+
+  _appendSecondaryCity(num id) async {
     try {
       var city = await _secondaryCityRepository.getByCityId(id, units);
-      _secondaryCities[id] = city;
+      _secondaryCities.add(MapEntry(id, city));
     } catch (e) {
       print('Veeeerde e');
     }
@@ -50,9 +66,12 @@ class WeatherController extends GetxController {
 
   _updateUnits() {
     _mainCity.value = _mainCity.value?.copyWithDifferentUnit(units);
-    _secondaryCities.entries.forEach((c) {
-      _secondaryCities[c.key] = c.value.copyWithDifferentUnit(units);
-    });
+    _secondaryCities.assignAll(
+      _secondaryCities
+          .map((c) => MapEntry(c.key, c.value.copyWithDifferentUnit(units)))
+          .toList(),
+    );
+    update();
   }
 
   void _change(MeasurementUnits newUnits) {

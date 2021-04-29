@@ -1,6 +1,5 @@
 library fav_widgets;
 
-import 'package:basic_wheater_app/assets/assets.dart';
 import 'package:basic_wheater_app/controllers/controlers_library.dart';
 import 'package:basic_wheater_app/models/models.dart';
 import 'package:basic_wheater_app/widgets/widgets.dart';

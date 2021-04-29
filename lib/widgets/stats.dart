@@ -44,7 +44,7 @@ class Stat extends StatelessWidget {
 
     return Obx(
       () {
-        final colors = themeCtrl.appColors.value;
+        final colors = themeCtrl.appColors;
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -58,7 +58,7 @@ class Stat extends StatelessWidget {
               padding: tiny
                   ? EdgeInsets.zero
                   : EdgeInsets.only(left: 8.0 + extraPadding),
-              child: Text(text, style: TextStyle(color: colors.text)),
+              child: CustomText.body(text, themeCtrl),
             ),
           ],
         );

@@ -7,9 +7,9 @@ class SettingsTop extends StatelessWidget {
     final languageCtrl = Get.find<LanguageController>();
     final weatherCtrl = Get.find<WeatherController>();
     return Obx(() {
-      final colors = themeCtrl.appColors.value;
-      final icons = themeCtrl.icons.value;
-      final translations = languageCtrl.translations.value.settingsPage;
+      final colors = themeCtrl.appColors;
+      final icons = themeCtrl.icons;
+      final translations = languageCtrl.translations.settingsPage;
       final mainCity = weatherCtrl.mainCity!;
       return Container(
         width: double.infinity,
@@ -19,17 +19,14 @@ class SettingsTop extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(LineIcons.mapMarker, color: colors.textSecondary),
-                Text(
-                  translations.locationNow,
-                  style: TextStyle(color: colors.textSecondary, fontSize: 12),
-                )
+                CustomText.bodySecondary(translations.locationNow, themeCtrl)
               ],
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
-              child: Text(
+              child: CustomText.subtitle(
                 mainCity.location.longLocation,
-                style: TextStyle(color: colors.text, fontSize: 14),
+                themeCtrl,
               ),
             ),
             Container(
@@ -41,12 +38,9 @@ class SettingsTop extends StatelessWidget {
               ),
             ),
             WeatherTypeChip(),
-            Text(
+            CustomText.temperatureTitle(
               mainCity.temperature.pretty,
-              style: TextStyle(
-                color: colors.text,
-                fontSize: 48,
-              ),
+              themeCtrl,
             ),
           ],
         ),

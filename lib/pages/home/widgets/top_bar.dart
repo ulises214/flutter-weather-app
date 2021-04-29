@@ -7,7 +7,6 @@ class TopBar extends StatelessWidget {
     final weatherCtrl = Get.find<WeatherController>();
     return Obx(
       () {
-        final colors = themeCtrl.appColors.value;
         final mainCityWeather = weatherCtrl.mainCity!;
         return Container(
           width: double.infinity,
@@ -21,20 +20,9 @@ class TopBar extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      mainCityWeather.location.city,
-                      style: TextStyle(
-                        color: colors.text,
-                        fontSize: 18,
-                      ),
-                    ),
-                    Text(
-                      mainCityWeather.temperature.pretty,
-                      style: TextStyle(
-                        color: colors.text,
-                        fontSize: 48,
-                      ),
-                    ),
+                    CustomText.title(mainCityWeather.location.city, themeCtrl),
+                    CustomText.temperatureTitle(
+                        mainCityWeather.temperature.pretty, themeCtrl),
                     WeatherTypeChip(),
                   ],
                 ),
@@ -44,7 +32,7 @@ class TopBar extends StatelessWidget {
                     height: 128,
                     width: 128,
                     image: AssetImage(
-                      themeCtrl.icons.value
+                      themeCtrl.icons
                           .find(mainCityWeather.iconName.assetImage)
                           .x1024,
                     ),

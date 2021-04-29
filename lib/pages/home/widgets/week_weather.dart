@@ -7,9 +7,8 @@ class WeekWeather extends StatelessWidget {
     final weatherCtrl = Get.find<WeatherController>();
     final languageCtrl = Get.find<LanguageController>();
     return Obx(() {
-      final colors = themeCtrl.appColors.value;
-      final icons = themeCtrl.icons.value;
-      final translations = languageCtrl.translations.value;
+      final icons = themeCtrl.icons;
+      final translations = languageCtrl.translations;
       final mainCity = weatherCtrl.mainCity!;
       return Column(
           children: mainCity.nextDays
@@ -19,8 +18,7 @@ class WeekWeather extends StatelessWidget {
                   icon: icons.find(e.icon.assetImage).x1024,
                   maxTemp: e.maxTemp.formatted,
                   minTemp: e.minTemp.formatted,
-                  textColor: colors.text,
-                  textColorSecondary: colors.textSecondary,
+                  controller: themeCtrl,
                 ),
               )
               .toList());
@@ -33,16 +31,14 @@ class NexDayWeather extends StatelessWidget {
   final String icon;
   final String maxTemp;
   final String minTemp;
-  final Color textColor;
-  final Color textColorSecondary;
+  final ThemeController controller;
 
   const NexDayWeather({
     required this.day,
     required this.icon,
     required this.maxTemp,
     required this.minTemp,
-    required this.textColor,
-    required this.textColorSecondary,
+    required this.controller,
   });
 
   @override
@@ -51,10 +47,7 @@ class NexDayWeather extends StatelessWidget {
       children: [
         Container(
           width: 100,
-          child: Text(
-            day,
-            style: TextStyle(color: textColor),
-          ),
+          child: CustomText.body(day, controller),
         ),
         Expanded(
           child: Image(
@@ -67,15 +60,9 @@ class NexDayWeather extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(right: 8.0),
-              child: Text(
-                maxTemp,
-                style: TextStyle(color: textColor, fontSize: 16),
-              ),
+              child: CustomText.body(maxTemp, controller),
             ),
-            Text(
-              minTemp,
-              style: TextStyle(color: textColorSecondary, fontSize: 16),
-            ),
+            CustomText.bodySecondary(minTemp, controller),
           ],
         )
       ],

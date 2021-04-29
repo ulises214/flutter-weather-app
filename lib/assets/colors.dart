@@ -7,13 +7,16 @@ const _White = Color(0xFFfefbf2);
 const _WhiteDark = Color(0xFFF1EFEC);
 const _Red = Color(0xFFef5352);
 // const _Orange = Color(0xFFFFB97D);
+// const _OrangeDark = Color(0xFFFF983d);
 const _Purple = Color(0xFF7b09a3);
+const _PurpleDark = Color(0xFF570674);
 const _Blue = Color(0xFF2B48D3);
 const _BlueDark = Color(0xFF152C39);
 const _BlueLight = Color(0xFF27AFFD);
 const _Gray = Color(0xFFa0a5b2);
+// const _GrayDark = Color(0xFF606676);
 const _WhiteShadow = Color.fromRGBO(255, 255, 255, 0);
-const _DarkShadow = Color.fromRGBO(0xFF, 0xB9, 0x7D, 0.9);
+const _DarkShadow = Color.fromRGBO(0x08, 0x1B, 0x25, 0.9);
 
 class AppColors {
   final Color background;
@@ -55,7 +58,7 @@ class AppColors {
       card: _WhiteDark,
       icon: _BlueDark,
       shadow: _DarkShadow,
-      border: _Black,
+      border: _WhiteDark,
       accent: _Red,
       text: _Black,
       extra: _BlueLight,

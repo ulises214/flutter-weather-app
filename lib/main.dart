@@ -36,10 +36,12 @@ class MyApp extends StatelessWidget {
       () {
         _changeStatusBarColors(themeCtrl);
         SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Material App',
+          theme: ThemeData(
+            textTheme: _buildTextTheme(themeCtrl),
+          ),
           routes: {
             '/': (_) => FutureBuilder(
                   initialData: false,
@@ -58,13 +60,44 @@ class MyApp extends StatelessWidget {
   }
 }
 
+TextTheme _buildTextTheme(ThemeController themeCtrl) {
+  return TextTheme(
+    bodyText1: TextStyle(
+      fontSize: 14,
+      color: themeCtrl.appColors.text,
+      fontWeight: FontWeight.w500,
+    ),
+    bodyText2: TextStyle(
+      fontSize: 14,
+      color: themeCtrl.appColors.textSecondary,
+    ),
+    headline1: TextStyle(
+      fontSize: 48,
+      color: themeCtrl.appColors.text,
+      fontWeight: FontWeight.w400,
+    ),
+    headline2: TextStyle(
+      fontSize: 32,
+      color: themeCtrl.appColors.text,
+    ),
+    headline3: TextStyle(
+      fontSize: 18,
+      color: themeCtrl.appColors.text,
+    ),
+    headline4: TextStyle(
+      fontSize: 16,
+      color: themeCtrl.appColors.text,
+    ),
+  );
+}
+
 void _changeStatusBarColors(ThemeController themeCtrl) =>
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: themeCtrl.appColors.value.background,
-        statusBarIconBrightness: themeCtrl.brightness.value,
-        systemNavigationBarColor: themeCtrl.appColors.value.card,
-        systemNavigationBarIconBrightness: themeCtrl.brightness.value,
-        systemNavigationBarDividerColor: themeCtrl.appColors.value.background,
+        statusBarColor: themeCtrl.appColors.background,
+        statusBarIconBrightness: themeCtrl.brightness,
+        systemNavigationBarColor: themeCtrl.appColors.card,
+        systemNavigationBarIconBrightness: themeCtrl.brightness,
+        systemNavigationBarDividerColor: themeCtrl.appColors.background,
       ),
     );
