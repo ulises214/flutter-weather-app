@@ -22,7 +22,7 @@ class CitiesWeatherList extends StatelessWidget {
                   temp: e.temperature.formatted,
                   city: e.location.city,
                   country: e.location.country,
-                  iconImage: icons.find(e.iconName.assetImage).x128,
+                  iconImage: icons.find(e.iconName.assetImage),
                   rain: e.humidity.formatted,
                   wind: e.windSpeed.formatted,
                 );

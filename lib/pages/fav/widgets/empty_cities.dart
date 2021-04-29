@@ -6,7 +6,7 @@ class EmptyCities extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final noWeatherIcon = themeCtrl.icons.noWeather.x1024;
+      final noWeatherIcon = themeCtrl.icons.noWeather;
       final colors = themeCtrl.appColors;
       final noWeatherText = languageCtrl.translations.favPage.noWeather;
       return Container(

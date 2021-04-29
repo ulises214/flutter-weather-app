@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Material App',
+          title: 'Walle\'s Weather App',
           theme: ThemeData(
             textTheme: _buildTextTheme(themeCtrl),
           ),

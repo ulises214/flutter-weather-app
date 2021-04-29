@@ -16,7 +16,7 @@ class DayWeather extends StatelessWidget {
               .map(
                 (e) => NextHourWeatherDetail(
                   time: e.hour,
-                  icon: icons.find(e.icon.assetImage).x1024,
+                  icon: icons.find(e.icon.assetImage),
                   temperature: e.temperature.formatted,
                   controller: themeCtrl,
                 ),

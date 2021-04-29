@@ -33,7 +33,7 @@ class SettingsTop extends StatelessWidget {
               width: 200,
               child: Image(
                 image: AssetImage(
-                  icons.find(mainCity.iconName.assetImage).x1024,
+                  icons.find(mainCity.iconName.assetImage),
                 ),
               ),
             ),

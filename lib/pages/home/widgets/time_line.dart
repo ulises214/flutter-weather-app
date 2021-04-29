@@ -32,7 +32,7 @@ class TimeLine extends StatelessWidget {
     return Obx(
       () {
         final icons = themeCtrl.icons;
-        final day = icons.day.x1024, night = icons.night.x1024;
+        final day = icons.day, night = icons.night;
         final colors = themeCtrl.appColors;
         final mainCity = weatherCtrl.mainCity!;
         return Container(

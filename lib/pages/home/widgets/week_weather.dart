@@ -15,7 +15,7 @@ class WeekWeather extends StatelessWidget {
               .map(
                 (e) => NexDayWeather(
                   day: translations.weekDays.days[e.day]!,
-                  icon: icons.find(e.icon.assetImage).x1024,
+                  icon: icons.find(e.icon.assetImage),
                   maxTemp: e.maxTemp.formatted,
                   minTemp: e.minTemp.formatted,
                   controller: themeCtrl,

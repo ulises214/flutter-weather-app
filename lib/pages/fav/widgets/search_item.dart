@@ -31,7 +31,7 @@ class SearchItem extends StatelessWidget {
                 Image(
                   width: 36,
                   image: AssetImage(
-                    controller.icons.find(city.iconName.assetImage).x48,
+                    controller.icons.find(city.iconName.assetImage),
                   ),
                 )
               ],

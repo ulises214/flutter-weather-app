@@ -32,9 +32,7 @@ class TopBar extends StatelessWidget {
                     height: 128,
                     width: 128,
                     image: AssetImage(
-                      themeCtrl.icons
-                          .find(mainCityWeather.iconName.assetImage)
-                          .x1024,
+                      themeCtrl.icons.find(mainCityWeather.iconName.assetImage),
                     ),
                   ),
                 ),
