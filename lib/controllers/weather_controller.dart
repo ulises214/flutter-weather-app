@@ -29,7 +29,8 @@ class WeatherController extends GetxController {
 
   // ? Update state
   _updateMainCity() async {
-    _mainCity.value = (await _mainCityRepository.getByCoords(19, -103, units));
+    _mainCity.value =
+        (await _mainCityRepository.getByCoords(20.8333, -89, units));
   }
 
   reOrderSecondaryList(int oldIndex, int newIndex) {
